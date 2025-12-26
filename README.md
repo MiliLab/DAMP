@@ -18,12 +18,6 @@ Binfeng Wang<sup>1,3</sup>, Di Wang<sup>2,3</sup>, Haonan Guo<sup>2,3 †</sup>,
   <a href="#-statement">Statement</a>
 </p >
 
-## 🔥 Update
-
-**2025.12.25**
-
-- The paper is post on arXiv! **([arXiv DAMP](https://arxiv.org/abs/2512.20251))**
-
 ## 🌞 Abstract
 
 Unified hyperspectral image (HSI) restoration aims to recover various degraded HSIs using a single model, offering great practical value. However, existing methods often depend on explicit degradation priors (e.g., degradation labels) as prompts to guide restoration, which are difficult to obtain due to complex and mixed degradations in real-world scenarios. To address this challenge, we propose a Degradation-Aware Metric Prompting (DAMP) framework. Instead of relying on predefined degradation priors, we design spatial–spectral degradation metrics to continuously quantify multi-dimensional degradations, serving as Degradation Prompts (DP). These DP enable the model to capture cross-task similarities in degradation distributions and enhance shared feature learning. Furthermore, we introduce a Spatial–Spectral Adaptive Module (SSAM) that dynamically modulates spatial and spectral feature extraction through learnable parameters. By integrating SSAM as experts within a Mixture-of-Experts architecture, and using DP as the gating router, the framework enables adaptive, efficient, and robust restoration under diverse, mixed, or unseen degradations. Extensive experiments on natural and remote sensing HSI datasets show that DAMP achieves state-of-the-art performance and demonstrates exceptional generalization capability.

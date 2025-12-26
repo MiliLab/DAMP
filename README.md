@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>SARMAE: Masked Autoencoder for SAR Representation Learning</h1>
+<h1>Degradation-Aware Metric Prompting for Hyperspectral Image Restoration</h1>
 
 Binfeng Wang<sup>1,3</sup>, Di Wang<sup>2,3</sup>, Haonan Guo<sup>2,3 †</sup>, Ying Fu<sup>1 †</sup>, Jing Zhang<sup>2,3 †</sup>.
 
@@ -13,7 +13,6 @@ Binfeng Wang<sup>1,3</sup>, Di Wang<sup>2,3</sup>, Haonan Guo<sup>2,3 †</sup>,
 <p align="center">
   <a href="#-update">Update</a> |
   <a href="#-abstract">Abstract</a> |
-  <a href="#-datasets">Datasets</a> |
   <a href="#-models">Models</a> |
   <a href="#-usage">Usage</a> |
   <a href="#-statement">Statement</a>
@@ -34,345 +33,34 @@ Unified hyperspectral image (HSI) restoration aims to recover various degraded H
 <img src=Figs/model.png width="100%">
 </div>
 
-<div align='center'>
-
-**Figure 1. Overview of the SARMAE pretraining framework. The framework consists of two branches: (i) a SAR branch following the MAE architecture with Speckle-Aware Representation Enhancement (SARE) to handle inherent speckle noise, and (ii) an optical branch using a frozen DINOv3 encoder. For paired SAR-optical data, Semantic Anchor Representation Constraint (SARC) aligns SAR features with semantic-rich optical representations. Unpaired SAR images are processed solely through the SAR branch.**
-
-</div>
-
-## 📖 Datasets
+**Figure 1. (a) The architecture of the proposed DAMP framework. (b) The Degradation-Adaptive MoE.**
 
 <figure>
 <div align="center">
-<img src=Figs/dataset.png width="40%">
+<img src=Figs/deg_any.png width="100%">
 </div>
 
-<div align='center'>
+**Figure 2. (a) Comparison between explicit prompt-based methods and degradation-aware metric prompting approaches. (b) Confusion matrix for classifying five degradation types based on HFER, STU and SCM. (c) Distribution of different degradation types across the HFER, STU and SCM.**
 
-**Figure 2. The organization of data sources in SAR-1M.**
-
+<figure>
+<div align="center">
+<img src=Figs/res.png width="60%">
 </div>
 
-## 🚀 Models
-
-Coming Soon.
+Figure 3. PSNR comparison with the state-of-the-art all-in-one methods: Inpainting, Super Resolution, Gaussian Deblurring, and Gaussian Denoising results are evaluated on the ARAD dataset after unified training, while Poisson Denoising and Motion Deblurring are reported as zero-shot results on the CAVE dataset. $[\cdot]$ denotes the range of PSNR values across different methods.
 
 ## 🔨 Usage
 
 Coming Soon.
 
-## 🍭 Results
-
-<figure>
-<div align="center">
-<img src=Figs/radar.png width="50%">
 </div>
 
-<div align='center'>
 
-**Figure 3. SARMAE outperforms SOTA methods on multiple datasets. <sup>1</sup>: 40-SHOT; <sup>2</sup>: 30% labeled. <sup>a</sup>: Multi-classes; <sup>b</sup>: Water.**
-
-</div>
-
-<table>
-<thead>
-  <tr>
-    <th rowspan="2">Method</th>
-    <th colspan="2" align="center"><b>FUSAR-SHIP</b></th>
-    <th colspan="2" align="center"><b>MSTAR</b></th>
-    <th colspan="1" align="center"><b>SAR-ACD</b></th>
-  </tr>
-  <tr>
-    <th align="center">40-shot</th>
-    <th align="center">30%</th>
-    <th align="center">40-shot</th>
-    <th align="center">30%</th>
-    <th align="center">30%</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>ResNet-50</td>
-    <td align="center">-</td>
-    <td align="center">58.41</td>
-    <td align="center">-</td>
-    <td align="center">89.94</td>
-    <td align="center">59.70</td>
-  </tr>
-  <tr>
-    <td>Swin Transformer</td>
-    <td align="center">-</td>
-    <td align="center">60.79</td>
-    <td align="center">-</td>
-    <td align="center">82.97</td>
-    <td align="center">67.50</td>
-  </tr>
-  <tr>
-    <td>Bet</td>
-    <td align="center">59.70</td>
-    <td align="center">71.13</td>
-    <td align="center">40.70</td>
-    <td align="center">69.75</td>
-    <td align="center">79.77</td>
-  </tr>
-  <tr>
-    <td>LoMaR</td>
-    <td align="center">82.70</td>
-    <td align="center">-</td>
-    <td align="center">77.00</td>
-    <td align="center">-</td>
-    <td align="center">-</td>
-  </tr>
-  <tr>
-    <td>SAR-JEPA</td>
-    <td align="center">85.80</td>
-    <td align="center">-</td>
-    <td align="center">91.60</td>
-    <td align="center">-</td>
-    <td align="center">-</td>
-  </tr>
-  <tr>
-    <td>SUMMIT</td>
-    <td align="center">-</td>
-    <td align="center">71.91</td>
-    <td align="center">-</td>
-    <td align="center">98.39</td>
-    <td align="center">84.25</td>
-  </tr>
-  <tr style="border-top: 2px solid #999;">
-    <td><b>SARMAE(ViT-B)</b></td>
-    <td align="center">89.30</td>
-    <td align="center">92.92</td>
-    <td align="center">96.70</td>
-    <td align="center"><b>99.61</b></td>
-    <td align="center">95.06</td>
-  </tr>
-  <tr>
-    <td><b>SARMAE(ViT-L)</b></td>
-    <td align="center"><b>90.86</b></td>
-    <td align="center">92.80</td>
-    <td align="center"><b>97.24</b></td>
-    <td align="center">98.92</td>
-    <td align="center"><b>95.63</b></td>
-  </tr>
-</tbody>
-</table>
-
-**Table 1.** Performance comparison (Top1 Accuracy, %) of different methods on the target classification task.
-
-</div>
-
-<table>
-<thead>
-  <tr>
-    <th align="center">Method</th>
-    <th align="center">SARDet-100k</th>
-    <th align="center">SSDD</th>
-    <th align="center">Method</th>
-    <th align="center">RSAR</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>ImageNet</td>
-    <td align="center">52.30</td>
-    <td align="center">66.40</td>
-    <td>RoI Transformer</td>
-    <td align="center">35.02</td>
-  </tr>
-  <tr>
-    <td>Deformable DETR</td>
-    <td align="center">50.00</td>
-    <td align="center">52.60</td>
-    <td>Def. DETR</td>
-    <td align="center">46.62</td>
-  </tr>
-  <tr>
-    <td>Swin Transformer</td>
-    <td align="center">53.80</td>
-    <td align="center">40.70</td>
-    <td>RetinaNet</td>
-    <td align="center">57.67</td>
-  </tr>
-  <tr>
-    <td>ConvNeXt</td>
-    <td align="center">55.10</td>
-    <td align="center">-</td>
-    <td>ARS-DETR</td>
-    <td align="center">61.14</td>
-  </tr>
-  <tr>
-    <td>CATNet</td>
-    <td align="center">-</td>
-    <td align="center">64.66</td>
-    <td>R3Det</td>
-    <td align="center">63.94</td>
-  </tr>
-  <tr>
-    <td>MSFA</td>
-    <td align="center">56.40</td>
-    <td align="center">-</td>
-    <td>ReDet</td>
-    <td align="center">64.71</td>
-  </tr>
-  <tr>
-    <td>SARAFE</td>
-    <td align="center">57.30</td>
-    <td align="center">67.50</td>
-    <td>O-RCNN</td>
-    <td align="center">64.82</td>
-  </tr>
-  <tr style="border-top: 2px solid #999;">
-    <td><b>SARMAE(ViT-B)</b></td>
-    <td align="center">57.90</td>
-    <td align="center">68.10</td>
-    <td><b>SARMAE(ViT-B)</b></td>
-    <td align="center">66.80</td>
-  </tr>
-  <tr>
-    <td><b>SARMAE(ViT-L)</b></td>
-    <td align="center"><b>63.10</b></td>
-    <td align="center"><b>69.30</b></td>
-    <td><b>SARMAE(ViT-L)</b></td>
-    <td align="center"><b>72.20</b></td>
-  </tr>
-</tbody>
-</table>
-
-**Table 2.** Performance comparison (mAP, %) of different methods on horizontal and oriented object detection tasks.
-
-</div>
-
-<table>
-<thead>
-  <tr>
-    <th rowspan="2">Method</th>
-    <th colspan="7" align="center"><b>Multiple classes</b></th>
-    <th colspan="1" align="center"><b>Water</b></th>
-  </tr>
-  <tr>
-    <th>Industrial Area</th>
-    <th>Natural Area</th>
-    <th>Land Use</th>
-    <th>Water</th>
-    <th>Housing</th>
-    <th>Other</th>
-    <th>mIoU</th>
-    <th>IoU</th>
-  </tr> 
-</thead>
-<tbody>
-  <tr>
-    <td>FCN</td>
-    <td align="center">37.78</td>
-    <td align="center">71.58</td>
-    <td align="center">1.24</td>
-    <td align="center">72.76</td>
-    <td align="center">67.69</td>
-    <td align="center">39.05</td>
-    <td align="center">48.35</td>
-    <td align="center">85.95</td>
-  </tr>
-  <tr>
-    <td>ANN</td>
-    <td align="center">41.23</td>
-    <td align="center">72.92</td>
-    <td align="center">0.97</td>
-    <td align="center">75.95</td>
-    <td align="center">68.40</td>
-    <td align="center">56.01</td>
-    <td align="center">52.58</td>
-    <td align="center">87.32</td>
-  </tr>
-  <tr>
-    <td>PSPNet</td>
-    <td align="center">33.99</td>
-    <td align="center">72.31</td>
-    <td align="center">0.93</td>
-    <td align="center">76.51</td>
-    <td align="center">68.07</td>
-    <td align="center">57.07</td>
-    <td align="center">51.48</td>
-    <td align="center">87.13</td>
-  </tr>
-  <tr>
-    <td>DeepLab V3+</td>
-    <td align="center">40.62</td>
-    <td align="center">70.67</td>
-    <td align="center">0.55</td>
-    <td align="center">72.93</td>
-    <td align="center">69.96</td>
-    <td align="center">34.53</td>
-    <td align="center">48.21</td>
-    <td align="center">87.53</td>
-  </tr>
-  <tr>
-    <td>PSANet</td>
-    <td align="center">40.70</td>
-    <td align="center">69.46</td>
-    <td align="center">1.33</td>
-    <td align="center">69.46</td>
-    <td align="center">68.75</td>
-    <td align="center">32.68</td>
-    <td align="center">47.14</td>
-    <td align="center">86.18</td>
-  </tr>
-  <tr>
-    <td>DANet</td>
-    <td align="center">39.56</td>
-    <td align="center">72.00</td>
-    <td align="center">1.00</td>
-    <td align="center">74.95</td>
-    <td align="center">67.79</td>
-    <td align="center">56.28</td>
-    <td align="center">39.56</td>
-    <td align="center">89.29</td>
-  </tr>
-  <tr style="border-top: 2px solid #999;">
-    <td><b>SARMAE(ViT-B)</b></td>
-    <td align="center"><b>65.87</b></td>
-    <td align="center">75.65</td>
-    <td align="center">29.20</td>
-    <td align="center">84.01</td>
-    <td align="center">73.23</td>
-    <td align="center"><b>71.21</b></td>
-    <td align="center">66.53</td>
-    <td align="center">92.31</td>
-  </tr>
-  <tr>
-    <td><b>SARMAE(ViT-L)</b></td>
-    <td align="center">65.84</td>
-    <td align="center"><b>78.04</b></td>
-    <td align="center"><b>29.47</b></td>
-    <td align="center"><b>87.12</b></td>
-    <td align="center"><b>75.22</b></td>
-    <td align="center">69.34</td>
-    <td align="center"><b>67.51</b></td>
-    <td align="center"><b>93.06</b></td>
-  </tr>
-</tbody>
-</table>
-
-**Table 3.** Performance comparison of semantic segmentation methods on multiple classes and water classes.
 
 ## ⭐ Citation
 
-If you find SARMAE helpful, please give a ⭐ and cite it as follows:
-
-```
-@misc{liu2025sarmaemaskedautoencodersar,
-      title={SARMAE: Masked Autoencoder for SAR Representation Learning}, 
-      author={Danxu Liu and Di Wang and Hebaixu Wang and Haoyang Chen and Wentao Jiang and Yilin Cheng and Haonan Guo and Wei Cui and Jing Zhang},
-      year={2025},
-      eprint={2512.16635},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2512.16635}, 
-}
-```
+Coming Soon.
 
 ## 🎺 Statement
 
-For any other questions please contact Danxu Liu at [bit.edu.cn](3120245436@bit.edu.cn) or [gmail.com](ldx.wenquandan@gmail.com).
-
-
+For any other questions please contact Bindeng Wabg at wbf_bit@163.com.

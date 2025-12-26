@@ -30,21 +30,21 @@ Unified hyperspectral image (HSI) restoration aims to recover various degraded H
 
 <figure>
 <div align="center">
-<img src=Figs/model.png width="100%">
+<img src=figs/model.png width="100%">
 </div>
 
 **Figure 1. (a) The architecture of the proposed DAMP framework. (b) The Degradation-Adaptive MoE.**
 
 <figure>
 <div align="center">
-<img src=Figs/deg_any.png width="100%">
+<img src=figs/deg_any.png width="100%">
 </div>
 
 **Figure 2. (a) Comparison between explicit prompt-based methods and degradation-aware metric prompting approaches. (b) Confusion matrix for classifying five degradation types based on HFER, STU and SCM. (c) Distribution of different degradation types across the HFER, STU and SCM.**
 
 <figure>
 <div align="center">
-<img src=Figs/res.png width="60%">
+<img src=figs/res.png width="60%">
 </div>
 
 Figure 3. PSNR comparison with the state-of-the-art all-in-one methods: Inpainting, Super Resolution, Gaussian Deblurring, and Gaussian Denoising results are evaluated on the ARAD dataset after unified training, while Poisson Denoising and Motion Deblurring are reported as zero-shot results on the CAVE dataset. $[\cdot]$ denotes the range of PSNR values across different methods.

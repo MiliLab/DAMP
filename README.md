@@ -59,21 +59,21 @@ Figure 3. PSNR comparison with the state-of-the-art all-in-one methods: Inpainti
 Coming Soon.
 
 ```
-python main.pt
+python main.py
 ```
 
 
 
 ## ⭐ Citation
 
-'''
+```
 @article{wang2025degradation,
   title={Degradation-Aware Metric Prompting for Hyperspectral Image Restoration},
   author={Wang, Binfeng and Wang, Di and Guo, Haonan and Fu, Ying and Zhang, Jing},
   journal={arXiv preprint arXiv:2512.20251},
   year={2025}
 }
-'''
+```
 
 ## 🎺 Statement
 

@@ -27,7 +27,7 @@ Binfeng Wang<sup>1,3</sup>, Di Wang<sup>2,3</sup>, Haonan Guo<sup>2,3 †</sup>,
 - The paper is accepted at ICML2026! **([arXiv](https://arxiv.org/abs/2512.20251))**
 
 - **2026.06.15**
-- The psource code released!
+- The source code released!
 
 ## 🌞 Abstract
 

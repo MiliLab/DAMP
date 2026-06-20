@@ -56,8 +56,6 @@ Figure 3. PSNR comparison with the state-of-the-art all-in-one methods: Inpainti
 
 ## 🔨 Usage
 
-Coming Soon.
-
 ```
 python main.py
 ```

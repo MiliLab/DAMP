@@ -27,7 +27,7 @@ parser.add_argument("--learning_rate", type=float, default=0.0001)
 # Model specifications
 parser.add_argument('--pretrained_model_path', type=str, default=None, help='pretrained model directory')
 parser.add_argument('--dimention', type=int, default=64, help='feature dimention')
-parser.add_argument('--num_blocks', nargs='+', type=int, default=[1, 2, 2, 3])
+parser.add_argument('--num_blocks', nargs='+', type=int, default=[1, 2, 2, 2])
 parser.add_argument('--num_dec_blocks', nargs='+', type=int, default=[1, 2, 2])
 parser.add_argument('--num_exp_blocks', type=int, default=4) 
 parser.add_argument('--num_refinement_blocks', type=int, default=2)

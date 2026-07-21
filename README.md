@@ -75,4 +75,4 @@ python main.py
 
 ## 🎺 Statement
 
-For any other questions please contact Bindeng Wabg at wbf_bit@163.com.
+For any other questions please contact Bindeng Wang at wbf_bit@163.com.
